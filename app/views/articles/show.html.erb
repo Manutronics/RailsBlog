@@ -1,0 +1,23 @@
+<div class="bodymanu">
+  <h1 class="display-4"><%= @article.title %></h1>
+  <p class="lead"><%= @article.body %></p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+</div>
+
+<ul>
+    <%= link_to "Edit", edit_article_path(@article), class:"btn btn-dark" %>
+
+    <%= link_to "Destroy", article_path(@article), class:"btn btn-dark", data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+    } %>
+</ul>
+
+
+<h2>Comments</h2>
+<%= render @article.comments %>
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
